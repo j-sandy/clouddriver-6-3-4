@@ -30,11 +30,15 @@ import retrofit.RestAdapter
 import retrofit.RetrofitError
 import retrofit.client.Response
 import retrofit.converter.GsonConverter
+//import retrofit2.Retrofit
+//import retrofit2.Response
+//import retrofit2.converter.gson.GsonConverterFactory
 import retrofit.http.GET
 import retrofit.http.Header
 import retrofit.http.Headers
 import retrofit.http.Path
 import retrofit.http.Query
+
 
 import java.time.Instant
 

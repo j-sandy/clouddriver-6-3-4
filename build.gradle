@@ -17,7 +17,7 @@
 
 buildscript {
   ext {
-    kotlinVersion = "1.3.10"
+    kotlinVersion = "1.3.50"
     junitPlatformVersion = "1.0.2"
   }
 
@@ -60,10 +60,38 @@ allprojects {
     sourceSets.main.java.srcDirs = []
     sourceSets.main.groovy.srcDirs += ["src/main/java"]
 
+    repositories {
+      mavenLocal()
+    }
     dependencies {
       configurations.all {
         resolutionStrategy.force "io.fabric8:kubernetes-model:4.1.1"
         resolutionStrategy.force "io.fabric8:kubernetes-client:4.1.1"
+        resolutionStrategy.force "redis.clients:jedis:2.10.2"
+        resolutionStrategy.force "org.codehaus.groovy:groovy:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-ant:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-cli-commons:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-cli-picocli:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-console:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-datetime:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-docgenerator:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-groovydoc:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-groovysh:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-jmx:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-json:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-jsr223:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-macro:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-nio:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-servlet:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-sql:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-swing:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-templates:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-test:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-test-junit5:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-testng:2.5.7"
+        resolutionStrategy.force "org.codehaus.groovy:groovy-xml:2.5.7"
+        resolutionStrategy.force "org.codehaus.plexus:plexus-utils:3.0.24"
+        resolutionStrategy.force "com.netflix.spinnaker.kork:kork-core:$korkVersion"
       }
       implementation platform("com.netflix.spinnaker.kork:kork-bom:$korkVersion")
 

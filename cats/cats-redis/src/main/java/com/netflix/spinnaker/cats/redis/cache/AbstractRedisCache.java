@@ -196,7 +196,7 @@ public abstract class AbstractRedisCache implements WriteableCache {
           while (true) {
             final ScanResult<String> scanResult = client.sscan(setKey, cursor, scanParams);
             matches.addAll(scanResult.getResult());
-            cursor = scanResult.getCursor();
+            cursor = scanResult.getStringCursor();
             if ("0".equals(cursor)) {
               return matches;
             }

@@ -19,9 +19,11 @@ package com.netflix.spinnaker.clouddriver.consul.api.v1
 
 import com.netflix.spinnaker.clouddriver.consul.config.ConsulConfig
 import com.netflix.spinnaker.clouddriver.consul.config.ConsulProperties
-import com.squareup.okhttp.OkHttpClient
-import retrofit.RestAdapter
-import retrofit.client.OkClient
+//import com.squareup.okhttp.OkHttpClient
+import okhttp3.OkHttpClient
+//import retrofit.RestAdapter
+//import retrofit.client.OkClient
+import retrofit2.Retrofit
 
 class Consul<T> {
   T api
@@ -35,10 +37,15 @@ class Consul<T> {
   Consul(String endpoint, Integer port, Long timeout, Class<T> type) {
     this.endpoint = "http://${endpoint}:${port}"
     this.timeout = timeout
-    this.api = new RestAdapter.Builder()
+    /*this.api = new RestAdapter.Builder()
       .setEndpoint(this.endpoint)
       .setClient(new OkClient(new OkHttpClient()))
       .setLogLevel(RestAdapter.LogLevel.NONE)
+      .build()
+      .create(type)*/
+    this.api = new Retrofit.Builder()
+      .baseUrl(this.endpoint)
+      .client(new OkHttpClient())
       .build()
       .create(type)
   }

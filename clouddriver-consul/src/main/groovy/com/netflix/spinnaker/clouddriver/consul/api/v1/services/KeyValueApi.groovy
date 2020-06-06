@@ -17,13 +17,14 @@
 package com.netflix.spinnaker.clouddriver.consul.api.v1.services
 
 import com.netflix.spinnaker.clouddriver.consul.api.v1.model.KeyValuePair
-import com.squareup.okhttp.Response
-import retrofit.http.Body
-import retrofit.http.DELETE
-import retrofit.http.GET
-import retrofit.http.PUT
-import retrofit.http.Path
-import retrofit.http.Query
+//import com.squareup.okhttp.Response
+import okhttp3.Response
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.PUT
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface KeyValueApi {
   @GET("/v1/kv/{key}")

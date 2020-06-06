@@ -17,7 +17,8 @@
 package com.netflix.spinnaker.clouddriver.artifacts.config;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.squareup.okhttp.*;
+//import com.squareup.okhttp.*;
+import okhttp3.*;
 import java.io.IOException;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;

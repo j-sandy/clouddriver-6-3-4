@@ -17,6 +17,7 @@ package com.netflix.spinnaker.clouddriver.docker.registry.api.v2.client;
 
 import com.netflix.spinnaker.clouddriver.docker.registry.security.TrustAllX509TrustManager;
 import com.squareup.okhttp.OkHttpClient;
+//import okhttp3.OkHttpClient;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -31,6 +32,9 @@ public class DefaultDockerOkClientProvider implements DockerOkClientProvider {
   public OkClient provide(String address, long timeoutMs, boolean insecure) {
     OkHttpClient client = new OkHttpClient();
     client.setReadTimeout(timeoutMs, TimeUnit.MILLISECONDS);
+    //OkHttpClient client = new OkHttpClient().newBuilder()
+    //  .readTimeout(timeoutMs, TimeUnit.MILLISECONDS)
+    //  .build();
 
     if (insecure) {
       SSLContext sslContext;
@@ -42,6 +46,9 @@ public class DefaultDockerOkClientProvider implements DockerOkClientProvider {
         throw new IllegalStateException("Failed configuring insecure SslSocketFactory", e);
       }
       client.setSslSocketFactory(sslContext.getSocketFactory());
+      /*client = client.newBuilder()
+        .sslSocketFactory(sslContext.getSocketFactory())
+        .build();*/
     }
 
     return new OkClient(client);

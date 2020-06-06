@@ -17,8 +17,9 @@
 package com.netflix.spinnaker.clouddriver.consul.api.v1.services
 
 import com.netflix.spinnaker.clouddriver.consul.api.v1.model.*
-import com.squareup.okhttp.Response
-import retrofit.http.*
+//import com.squareup.okhttp.Response
+import okhttp3.Response
+import retrofit2.http.*
 
 interface AgentApi {
   @GET("/v1/agent/checks")
