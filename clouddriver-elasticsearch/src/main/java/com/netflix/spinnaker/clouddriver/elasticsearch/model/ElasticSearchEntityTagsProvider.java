@@ -42,6 +42,7 @@ import io.searchbox.params.Parameters;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
+import org.apache.lucene.search.join.ScoreMode;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -610,7 +611,7 @@ public class ElasticSearchEntityTagsProvider implements EntityTagsProvider {
       boolQueryBuilder.must(QueryBuilders.termQuery("tags.namespace", namespace));
     }
 
-    return QueryBuilders.nestedQuery("tags", boolQueryBuilder);
+    return QueryBuilders.nestedQuery("tags", boolQueryBuilder, ScoreMode.Avg);
   }
 
   /** Elasticsearch requires that all search criteria be flattened (vs. nested) */

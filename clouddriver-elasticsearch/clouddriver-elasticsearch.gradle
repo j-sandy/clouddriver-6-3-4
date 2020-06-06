@@ -7,7 +7,8 @@ dependencies {
   implementation "com.netflix.spinnaker.kork:kork-security"
   implementation "com.squareup.retrofit:retrofit"
   implementation "org.codehaus.groovy:groovy-all"
-  implementation("org.elasticsearch:elasticsearch:2.4.1") {
+  //implementation("org.elasticsearch:elasticsearch:2.4.1") {
+  implementation("org.elasticsearch:elasticsearch:6.8.6") {
     force = true
   }
 

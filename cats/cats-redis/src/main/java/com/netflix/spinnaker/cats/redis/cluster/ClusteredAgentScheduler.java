@@ -39,7 +39,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.params.SetParams;
+
+// import redis.clients.jedis.params.SetParams;
 
 public class ClusteredAgentScheduler extends CatsModuleAware
     implements AgentScheduler<AgentLock>, Runnable {
@@ -182,7 +183,10 @@ public class ClusteredAgentScheduler extends CatsModuleAware
               client.set(
                   agentType,
                   nodeIdentity.getNodeIdentity(),
-                  SetParams.setParams().nx().px(timeout));
+                  // SetParams.setParams().nx().px(timeout)
+                  SET_IF_NOT_EXIST,
+                  SET_EXPIRE_TIME_MILLIS,
+                  timeout);
           return SUCCESS_RESPONSE.equals(response);
         });
   }

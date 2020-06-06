@@ -21,7 +21,8 @@ dependencies {
     force = true
   }
   implementation "org.codehaus.groovy:groovy-all"
-  implementation("org.elasticsearch:elasticsearch:2.4.1") {
+  //implementation("org.elasticsearch:elasticsearch:2.4.1")
+  implementation("org.elasticsearch:elasticsearch:6.8.6") {
     force = true
   }
   implementation "org.springframework.boot:spring-boot-starter-web"
